@@ -9,6 +9,8 @@ In this post I am going to show you how to implement Firebase Authentication wit
 
 **Requirements**: Installed Node, Ionic CLI and Android Studio.
 
+Project code can be found [here](https://github.com/jelicas/ionic-firebase-auth)
+
 # Create Ionic project
 
 First of all we are going to create a blank ionic-angular project with a following command:

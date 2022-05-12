@@ -242,5 +242,6 @@ For testing purposes provide Privacy Policy URL and User data deletion with any 
 Go back to Android Studio and sync project with gradle files. (File/Sync Project with Gradle Files)
 
 Make a project and run it on an avd emulator (Pixel 2 API 28).
+Install Facebook App on emulator and then test the functionality.
 
 ![Emulator](/assets/images/emulatorfb.png)

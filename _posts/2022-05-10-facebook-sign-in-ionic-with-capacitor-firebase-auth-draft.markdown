@@ -6,7 +6,7 @@ categories:
 ---
 
 In this post I am going to show you how to implement Firebase Authentication with Facebook provider for Ionic web and android app with a help of Capacitor plugin for Firebase Authentication [capacitor-firebase-auth](https://github.com/baumblatt/capacitor-firebase-auth). 
-This post is 
+This post is second in a series of Ionic Firebase Authentication with external providers.
 
 **Requirements**: Installed Node, Ionic CLI, Android Studio and followed [first part of Ionic Firebase Authentication tutorial](https://jelicas.github.io/2022/05/10/google-sign-in-ionic-with-capacitor-firebase-auth-draft.html) in which Ionic app and Firebase project is created.
 
@@ -57,7 +57,7 @@ Go to facebook for developers dashboard. Go to Settings. Choose Basic. Here you 
 
 Go to [Firebase console](https://console.firebase.google.com) and select [previously](https://jelicas.github.io/2022/05/10/google-sign-in-ionic-with-capacitor-firebase-auth-draft.html) created project ionic-firebase-auth.
 
-In side menu on the left go to Authentication.
+In side menu on the left go to Build->Authentication.
 
 ![Auth start](/assets/images/firebaseauth.png)
 
@@ -65,12 +65,12 @@ Go to Sign-in method and choose Facebook provider. Enable it with a toggle butto
 
 ![Facebook enable](/assets/images/facebookenable.png)
 
-To complete set up, add this OAuth redirect URI to your Facebook app configuration. 
+To complete set up, copy this OAuth redirect URI to your Facebook app configuration. 
 
-Go to Facebook Dashboard and select Facebook login setup.
+Copy URI from Firebase and go to Facebook Dashboard and select Facebook login setup.
 ![Facebook redirect](/assets/images/facebookloginsetup.png)
 
-Select Facebook Settings from side menu and copy OAuth Redirect URI and then save changes.
+Select Facebook Settings from side menu on the left and copy OAuth Redirect URI and then save changes.
 ![Facebook redirect](/assets/images/facebookredirect.png)
 
 Get back to Firebase and click the save button.
@@ -187,7 +187,8 @@ dependencies {
 ```
 ![Facebook SDK](/assets/images/fbsdk.png)
 
-Update AndroidManifest.xml
+Update AndroidManifest.xml. Add following code inside <application.
+
 android/app/src/main/AndroidManifest.xml
 ```
 <meta-data android:name="com.facebook.sdk.ApplicationId"
@@ -213,7 +214,10 @@ android/app/src/main/AndroidManifest.xml
 ```
 ![Android Manifest](/assets/images/androidmanifest.png)
 
-Add values (Replace [APP_ID] and [CLIENT_TOKEN] with your Facebook App ID and Client token which can be found on the Dashboard for app on Facebook for developers from which you should navigate to Settings > Advanced > Security > Client token.)
+Add following values in strings.xml file.
+Replace [APP_ID] with a value found in Facebook Developer Dashboard for app -> Settings -> Basic.
+Replace [CLIENT_TOKEN] with a value found in Facebook Developer Dashboard for app -> Settings -> Advanced > Security > Client token.
+
 android/app/src/main/res/values/strings.xml
 ```
 <string name="facebook_app_id">[APP_ID]</string>
@@ -221,20 +225,21 @@ android/app/src/main/res/values/strings.xml
 <string name="fb_login_protocol_scheme">fb[APP_ID]://authorize</string>
 ```
 
-On Facebook Developer on Settings Basics add platform Android, choose Google play.
+On Facebook Developer Dashboard, go to Settings -> Basic and scroll to bottom to add platform Android. Select Google Play in following popup.
 ![Add Android platform](/assets/images/androidplatform.png)
 
-Insert package name and class.
-Generate hash key following this command (pass is android):
+From terminal, generate hash key following this command (password is android):
 ```
 keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
 ```
+
+Copy generated hash into a field with label Key Hashes and hit enter.
 ![Set data](/assets/images/keyhash.png)
 
-For testing purposes provide Privacy Policy URL and User data deletion with any links if you can not save changes. 
+For testing purposes provide Privacy Policy URL and User data deletion with any links. 
 ![Dummy URLS](/assets/images/urls.png)
 
-Sync project with gradle files. (File/Sync Project with Gradle Files)
+Go back to Android Studio and sync project with gradle files. (File/Sync Project with Gradle Files)
 
 Make a project and run it on an avd emulator (Pixel 2 API 28).
 

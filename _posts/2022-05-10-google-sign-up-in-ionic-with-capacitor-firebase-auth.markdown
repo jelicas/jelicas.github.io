@@ -2,6 +2,7 @@
 layout: post
 title:  "Google sign up in Ionic with capacitor-firebase-auth"
 date:   2022-05-10 10:51:03 +0200
+last_modified_at: 2022-05-13 10:51:03 +0200
 categories:
 permalink: /2022/05/10/google-sign-up-in-ionic-with-capacitor-firebase-auth.html
 description: Here's a detailed tutorial on how to set up Google sign in with Firebase in your Ionic app using capacitor-firebase-auth plugin.
@@ -9,7 +10,7 @@ description: Here's a detailed tutorial on how to set up Google sign in with Fir
 
 Hello dear students! :)
 
-In this post I will show you how to implement Firebase Authentication with Google provider for Ionic apps with a help of Capacitor plugin for Firebase Authentication [capacitor-firebase-auth](https://github.com/baumblatt/capacitor-firebase-auth). I am going to fully configure app for web browsers and android OS. If you want me to update post for iOS feel free to reach out.
+In this post I will show you how to implement Firebase Authentication with Google provider for Ionic apps with a help of Capacitor plugin for Firebase Authentication [capacitor-firebase-auth](https://github.com/baumblatt/capacitor-firebase-auth){:target="_blank"}. I am going to fully configure app for web browsers and android OS. If you want me to update post for iOS feel free to reach out.
 
 In next post I will continue to work on same project (that will be the final result of this post) and update it with Facebook provider for authentication. 
 
@@ -17,7 +18,7 @@ Grab a cup of coffee and enjoy! If you have any comment and suggestion you can c
 
 **Requirements**: Installed Node, Ionic CLI and Android Studio.
 
-Project code can be found [here](https://github.com/jelicas/ionic-firebase-auth).
+Project code can be found [here](https://github.com/jelicas/ionic-firebase-auth){:target="_blank"}.
 
 ## Table of Contents
 {: .no_toc}
@@ -89,7 +90,7 @@ Now we have simple Ionic app with one button and needed packages.
 
 ## Create Firebase project 
 
-Go to [Firebase console](https://console.firebase.google.com) and add a new project. Give it a name (I named it ionic-firebase-auth).
+Go to [Firebase console](https://console.firebase.google.com){:target="_blank"} and add a new project. Give it a name (I named it ionic-firebase-auth).
 
 ## Firebase Google Auth provider setup
 In side menu on the left go to Authentication and click on Get Started button.

@@ -3,15 +3,28 @@ layout: post
 title:  "Google sign in Ionic with capacitor-firebase-auth - draft"
 date:   2022-05-10 10:51:03 +0200
 categories:
+permalink: https://jelicas.github.io/2022/05/10/google-sign-in-ionic-with-capacitor-firebase-auth-draft.html
 ---
 
-In this post I am going to show you how to implement Firebase Authentication with Google provider for Ionic web and android app with a help of Capacitor plugin for Firebase Authentication [capacitor-firebase-auth](https://github.com/baumblatt/capacitor-firebase-auth). 
+Hello dear students! :)
+
+In this post I will show you how to implement Firebase Authentication with Google provider for Ionic apps with a help of Capacitor plugin for Firebase Authentication [capacitor-firebase-auth](https://github.com/baumblatt/capacitor-firebase-auth). I am going to fully configure app for web browsers and android OS. If you want me to update post for iOS feel free to reach out.
+
+In next post I will continue to work on same project (that will be the final result of this post) and update it with Facebook provider for authentication. 
+
+Grab a cup of coffee and enjoy! If you have any comment and suggestion you can contact me at jelica.stanojevic@fon.bg.ac.rs.
 
 **Requirements**: Installed Node, Ionic CLI and Android Studio.
 
 Project code can be found [here](https://github.com/jelicas/ionic-firebase-auth).
 
-# Create Ionic project
+## Table of Contents
+{: .no_toc}
+
+* TOC
+{: toc}
+
+## Create Ionic project
 
 First of all we are going to create a blank ionic-angular project with a following command:
 
@@ -25,7 +38,7 @@ Open the project and generate a new page (you could also use the home page which
 `ionic generate page sign-in`
 {: refdef}
 
-Change route redirection to the sign-in page.
+Change route redirection to the sign-in page to ease our development flow.
 
 src/app/app-routing.module.ts
 ```
@@ -71,11 +84,13 @@ Add capacitor-firebase-auth package and install a specific 8.3.0 version of the 
 `npm install --save capacitor-firebase-auth firebase@8.3.0`
 {: refdef}
 
-# Firebase project 
+Now we have simple Ionic app with one button and needed packages.
+
+## Create Firebase project 
 
 Go to [Firebase console](https://console.firebase.google.com) and add a new project. Give it a name (I named it ionic-firebase-auth).
 
-# Firebase Google Auth provider setup
+## Firebase Google Auth provider setup
 In side menu on the left go to Authentication and click on Get Started button.
 
 ![Auth start](/assets/images/authstart.png)
@@ -84,13 +99,15 @@ Go to Sign-in method and choose Google provider. Enable it with a toggle button,
 
 ![Google enable](/assets/images/authenablegoogle.png)
 
-# Firebase setup for Web App
+## Web App setup
+
+### Firebase setup
 
 On the Project overview page you can get started by choosing to add Firebase to web app or go to Project settings and register the web app.
 
 ![Firebase web app](/assets/images/firebasewebappgetstarted.png)
 
-Choose a nickname for your app and then copy firebase config to src/app/environments/environment.ts as shown below, but with values.
+Choose a nickname for your app and then copy firebase config to src/app/environments/environment.ts as shown below, but leave values.
 
 ```
 export const environment = {
@@ -106,7 +123,9 @@ export const environment = {
 }
 ```
 
-Initialize firebase 
+### Ionic App setup
+
+Initialize firebase in your project.
 
 src/app/app.module.ts
 ```
@@ -121,7 +140,7 @@ export class AppModule {
 }
 ```
 
-Add method signInWithGoogle()
+Add method signInWithGoogle().
 
 src/app/sign-in/sign-in.page.ts
 ```
@@ -167,13 +186,15 @@ If signing in is successful in devtools for Chrome in console logs you should se
 
 ![Console log](/assets/images/consolelog.png)
 
-Checking Authentication in firebase project you should see the user registered.
+Check Authentication section in Firebase project and you should see the registered user.
 
 ![Firebase user](/assets/images/firebaseuser.png)
 
 Now, when everything works fine in web app, we are going to setup android app.
 
-# Add Android to Project
+## Android setup
+
+### Add Android to Ionic Project
 
 Update capacitor.config.ts file as follows. 
 
@@ -212,14 +233,14 @@ Add android to project:
 `ionic capacitor add android`
 {: refdef}
 
-Open generated android folder in android studio and change to project view
+Open generated android folder (/ionic-firebase-auth/android) in Android Studio and change to Project View.
 
 ![Andorid project view](/assets/images/projectview.png)
 
-# Firebase Google provider setup for Android App:
+### Firebase Google provider setup for Android App
 
 As mentioned in Firebase: Google sign-in is automatically configured on your connected Apple and web apps. To set up Google sign-in for your Android apps, you need to add the SHA1 fingerprint for each app on your Project Settings.
-For Linux and MacOS run command:
+For Linux and MacOS run this command in terminal:
 
 {:refdef: style="text-align: center;"}
 `keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore`
@@ -227,15 +248,15 @@ For Linux and MacOS run command:
 
 Password is android. 
 
-Go to Project settings.
+In Firebase go to Project settings.
 
 ![Firebase project settings](/assets/images/projectsettings.png)
 
-Add Android app.
+Click Add app button and choose android.
 
 ![Add android app](/assets/images/addandroidapp.png)
 
-I named it com.ionicfirebaseauth.mobile (remember that appId in capcitor.config.ts file has the same name). Copy previously generated SHA1 value from terminal. Click Register app.
+I named it com.ionicfirebaseauth.mobile (remember that appId in capcitor.config.ts file that I already updated has the same name). Copy previously generated SHA1 value from terminal. Click Register app.
 
 ![Register android app](/assets/images/registerapp.png)
 
@@ -317,6 +338,8 @@ public class MainActivity extends BridgeActivity {
 
 Sync project with gradle files. (File/Sync Project with Gradle Files)
 
-Make a project and run it on an avd emulator (Pixel 2 API 28).
+Make a project and run it on an AVD emulator (I used Pixel 2 API 28).
 
 ![Emulator](/assets/images/emulator.png)
+
+Now you can further develop your application with Google provider enabled. 

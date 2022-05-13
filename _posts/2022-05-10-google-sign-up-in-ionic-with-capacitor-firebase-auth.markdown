@@ -3,7 +3,7 @@ layout: post
 title:  "Google sign up in Ionic with capacitor-firebase-auth"
 date:   2022-05-10 10:51:03 +0200
 categories:
-permalink: 2022/05/10/google-sign-up-in-ionic-with-capacitor-firebase-auth.html
+permalink: /2022/05/10/google-sign-up-in-ionic-with-capacitor-firebase-auth.html
 description: Here's a detailed tutorial on how to set up Google sign in with Firebase in your Ionic app using capacitor-firebase-auth plugin.
 ---
 

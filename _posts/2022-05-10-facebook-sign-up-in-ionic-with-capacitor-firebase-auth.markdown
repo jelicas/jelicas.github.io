@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Facebook sign up in Ionic with capacitor-firebase-auth - draft"
+title:  "Facebook sign up in Ionic with capacitor-firebase-auth"
 date:   2022-05-10 12:51:03 +0200
 categories:
 permalink: /2022/05/10/facebook-sign-up-in-ionic-with-capacitor-firebase-auth.html
